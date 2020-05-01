@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='profile.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Profile - CBS</title>
+
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  {% for message in get_flashed_messages() %}
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong> {{message}} </strong>
+    </div>
+  {% endfor %}
+
+  <ul id="topNav">
+    <li style="float: left"><a id="logo" href="http://localhost:5000/" title="Home">CBS</a></li>
+    <li><a href="http://localhost:5000/logout" title="Logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+    <li><a href="http://localhost:5000/profile" title="Profile">{{ g.user.email }} <i class="fas fa-user"></i></a><li>
+    <li><a href="http://localhost:5000/" title="Home">Home <i class="fas fa-home"></i></a></li>
+  </ul>
+
+  <div class="main">
+    <ul id="profileNav">
+      <li class="active"><a href="http://localhost:5000/profile">Profile</a></li>
+      <li><a href="http://localhost:5000/profileBilling">Billing</a></li>
+      <li><a href="http://localhost:5000/userHistory">History</a></li>
+    </ul>
+    <form class="loginForm row" action="http://localhost:5000/edit" method="post">
+      <div class="left col-4">
+        <h3>Personal Information</h3>
+        <label for="email">Email</label>
+        <input class="mb-2" type="text" name="email" required value= "{{ g.user.email }}" readonly="readonly" style="color: #787878;">
+        <label for="firstname">First Name*</label>
+        <input class="mb-2" type="text" name="firstname" required value="{{ g.user.first_name }}">
+        <label for="lastname">Last Name*</label>
+        <input class="mb-2" type="text" name="lastname" required value="{{ g.user.last_name }}">
+        <label for="newpassword">New Password</label>
+        <input class="mb-2" id="password" type="password" name="newpassword" value="">
+        <label for="newrepassword">Confirm New Password</label>
+        <input class="mb-2" id="confirm_password" type="password" name="newrepassword" value="">
+        <label for="password">Current Password*</label>
+        <input class="mb-2" id="password" type="password" name="password" required value="">
+        <label for="repassword">Confirm Current Password*</label>
+        <input class="mb-2" id="confirm_password" type="password" name="repassword" required value="">
+      </div>
+      <div class="col-8"></div>
+      <div class="col-5">
+        {% if g.user.subscribed %}
+          <input class="check" type="checkbox" name="subscription" value="Yes" checked><span class="mt-3">I would like to subscribe to a promotional newsletter</span>
+        {% else %}
+          <input class="check" type="checkbox" name="subscription" value="Yes" ><span class="mt-3">I would like to subscribe to a promotional newsletter</span>
+        {% endif %}
+      </div>
+      <div class="col-7"></div>
+      <div class="buttons">
+        <input class="submitButton col-5 ml-3 mr-2" type="submit" value="Save Changes" class="btn">
+      </div>
+
+    </form>
+  </div>
+
+  <script type="text/javascript">
+    var password = document.getElementById("password"),
+      confirm_password = document.getElementById("confirm_password");
+
+    function validatePassword() {
+      if (password.value != confirm_password.value) {
+        confirm_password.setCustomValidity("Passwords Don't Match");
+      } else {
+        confirm_password.setCustomValidity('');
+      }
+    }
+
+    password.onchange = validatePassword;
+    confirm_password.onkeyup = validatePassword;
+  </script>
+
+</body>
+
+</html>

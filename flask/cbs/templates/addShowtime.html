@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='addShowtime.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Manage Showtimes - CBS</title>
+</head>
+{% for message in get_flashed_messages() %}
+<div class="alert">
+  <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  
+  <strong> {{message}} </strong>
+</div>
+{% endfor %}
+
+<body>
+  <!-- LOGGED IN NAV -->
+  <ul id="topNav">
+    <li style="float: left"><a id="logo" href="http://localhost:5000/admin" title="Home">CBS</a></li>
+    <li><a href="http://localhost:5000/logout" title="Logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+    <li><a href="http://localhost:5000/profile" title="Profile">{{ g.user.email }} <i class="fas fa-user"></i></a>
+    <li>
+    <li><a href="http://localhost:5000/admin" title="Home">Home <i class="fas fa-home"></i></a></li>
+  </ul>
+
+  <div class="main">
+    <ul id="manageNav">
+      <li class=""><a href="http://localhost:5000/addMovie">Add Movie</a></li>
+      <!-- <li><a href="http://localhost:5000/showtime">Manage Showtimes</a></li> -->
+      <li><a href="http://localhost:5000/halls">Manage Halls</a></li>
+      <li><a href="http://localhost:5000/manageUsers">Manage Users</a></li>
+      <li><a href="http://localhost:5000/report">View Report</a></li>
+      <li><a href="http://localhost:5000/addPromo">Add Promotions</a></li>
+    </ul>
+
+    <div class="resultContainer">
+      <h1>Add Showtime for <span>{{g.movie.name}}</span></h1>
+      <form class="addForm" action={{"http://localhost:5000/showtimeAdded?id="~g.movie.id}} method="post">
+        <h5>Showtime*</h5>
+        <input type="text" name="time" value="" placeholder="format: 9:30a or 10:45p" required></input><br>
+        <h5>Start Date*</h5>
+        <input type="text" name="start" value="" placeholder="MM/DD/YYYY" required></input><br>
+        <h5>End Date*</h5>
+        <input type="text" name="end" value="" placeholder="MM/DD/YYYY" required></input><br>
+        <h5>Hall*</h5>
+        <select name="hall" required>
+          <option value="" disabled>Hall</option>
+          {% for room in g.showrooms %}
+          <option value={{room.id}}>{{room.id}}</option>
+          {% endfor %}
+        </select><br><br>
+        <input class="add" type="submit" value="Add Showtime">
+      </form>
+    </div>
+
+  </div>
+
+</html>

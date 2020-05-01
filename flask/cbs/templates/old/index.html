@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='index.css') }}">
+  <title>Home - CBS</title>
+</head>
+<body>
+  <div id="topnavStart">
+    {% if g.user %}
+      <a href="http://localhost:5000/logout">Logout</a>
+      <a href="http://localhost:5000/profile">{{ g.user.email }}</a>
+    {% else %}
+      <a href="http://localhost:5000/register">Register</a>
+      <a href="http://localhost:5000/login">Login</a>
+    {% endif %}
+  </div>
+  <div id="central">
+    <div id="introHeader">
+      CBS
+    </div>
+    <div id="introP">
+      <p>
+        Book tickets for the hottest nearby movies
+      </p>
+    </div>
+    <br>
+    <a id="searchButton" href="http://localhost:5000/search">Search Now</a>
+  </div>
+</body>
+</html>

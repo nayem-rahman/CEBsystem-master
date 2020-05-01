@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='forgot.css') }}">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+
+    <title>Forgot Password - CBS</title>
+  </head>
+  <body>
+      <ul id="topNav">
+          <li style="float: left"><a id="logo" href="http://localhost:5000/" title="Home">CBS</a></li>
+          <li><a href="http://localhost:5000/login" title="Login">Login <i class="fas fa-sign-in-alt"></i></a></li>
+          <li><a href="http://localhost:5000/" title="Home">Home <i class="fas fa-home"></i></a></li>
+        </ul>
+    {% for message in get_flashed_messages() %}
+      <div class="alert">
+        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  
+        <strong> {{message}} </strong>
+      </div>
+    {% endfor %}
+    <div id="loginDiv">
+      <div id="loginHeader">
+        Forgot Password?
+      </div>
+      <p id="forgotdesc">Enter your email address. A new password will be sent to your email.</p>
+      <form id="loginForm" action="http://localhost:5000/passwordSent" method="post">
+        Enter email*<br>
+        <input class="loginField" type="text" name="email" required>
+        <br><br>
+        <input class="submitButton" type="submit" value="Send Email">
+      </form>
+      <br>
+      <a href="http://localhost:5000/register">Don't have an account? Register here!</a>
+    </div>
+  </body>
+</html>

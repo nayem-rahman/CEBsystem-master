@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="showtime.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Manage Showtimes - CBS</title>
+</head>
+<body>
+  <ul id="topNav">
+    <li style="float: left"><a id="logo" href="index.html" title="Home">CBS</a></li>
+    <li><a href="index.html" title="Logout">Logout <i class="fas fa-sign-out-alt"></i></a></li>
+    <li id="LogInfo">Logged in as <span class="userEmail">kljohnston2626@gmail.com</span></li>
+  </ul>
+
+  <div class="main">
+    <ul id="manageNav">
+    <li class="active"><a href="manageMovie.html">Manage Movies</a></li>
+    <li><a href="showtime.html">Manage Showtimes</a></li>
+    <li><a href="halls.html">Manage Halls</a></li>
+    <li><a href="manageUsr.html">Manage Users</a></li>
+    <li><a href="report.html">View Report</a></li>
+    <li><a href="addPromo.html">Add Promotions</a></li>
+  </ul>
+
+  <div id="container">
+    <div id="addHeader">
+      Manage Showtimes
+      </div
+      <br>
+  <form id="showtime" action="/admin.html" method="post">
+    Select Date:
+    <input type="date" name="date">
+    <br><br>
+    Select Movie:
+    <select class="" name="movies">
+      <option disabled selected value> -- Select an option -- </option>
+      <option value="">Joker</option>
+      <option value="">IT: Chapter 2 (2019)</option>
+      <option value="">The Lion King</option>
+      <option value="">Ad Astra</option>
+      <option value="">Good Boys (2019)</option>
+      <option value="">Spiderman: Far From Home</option>
+      <option value="">Hustlers</option>
+      <option value="">The Goldfinch</option>
+    </select>
+    <br><br>
+    Add time
+    <select class="" name="time">
+      <option disabled selected value> -- Select an option -- </option>
+      <option value="">10:20a</option>
+      <option value="">11:00a</option>
+      <option value="">2:45p</option>
+      <option value="">3:45p</option>
+      <option value="">5:30p</option>
+      <option value="">9:00p</option>
+      <option value="">11:00p</option>
+    </select>
+    <br><br>
+    Delete time:
+    <select class="" name="time">
+      <option disabled selected value> -- Select an option -- </option>
+      <option value="">9:30a</option>
+      <option value="">11:50a</option>
+      <option value="">2:10p</option>
+      <option value="">4:45p</option>
+      <option value="">7:30p</option>
+      <option value="">10:00p</option>
+    </select>
+
+    <input class="submitButton" type="submit" value="Update Showtime">
+
+  </form>
+  </div>
+</html>

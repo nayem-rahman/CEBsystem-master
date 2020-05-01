@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='billing.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Billing - CBS</title>
+
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  {% for message in get_flashed_messages() %}
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong> {{message}} </strong>
+    </div>
+  {% endfor %}
+
+  <ul id="topNav">
+    <li style="float: left"><a id="logo" href="http://localhost:5000/" title="Home">CBS</a></li>
+    <li><a href="http://localhost:5000/logout" title="Logout">Logout <i class="fas fa-sign-out-alt"></i></a></li>
+    <!-- <li><a href="cart.html" title="Cart">Cart <i class="fas fa-shopping-cart"></i></a></li> -->
+    <li><a href="http://localhost:5000/profile" title="Profile">{{ g.user.email }} <i class="fas fa-user"></i></a></li>
+    <!-- <li id="LogInfo">Logged in as <span class="userEmail">{{ g.user.email }}</span></li> -->
+    <li><a href="http://localhost:5000/" title="Home">Home <i class="fas fa-home"></i></a></li>
+  </ul>
+
+  <div class="main">
+    <ul id="profileNav">
+      <li><a href="http://localhost:5000/profile">Profile</a></li>
+      <li class="active"><a href="http://localhost:5000/profileBilling">Billing</a></li>
+      <li><a href="http://localhost:5000/userHistory">History</a></li>
+    </ul>
+    <form class="loginForm row" action="http://localhost:5000/editBilling" method="post">
+      <div class="col-4">
+        <div class="">
+          <h3>Billing Address</h3>
+          <label for="fname">Full Name*</label>
+          <input class="mb-2" type="text" id="fname" name="fullname" value="{{ g.billing.full_name }}" required>
+          <label for="adr">Address*</label>
+          <input class="mb-2" type="text" id="adr" name="address" value="{{ g.billing.address }}" required>
+          <label for="city">City*</label>
+          <input class="mb-2" type="text" id="city" name="city" value="{{ g.billing.city }}" required>
+
+          <div class="row" style="width: 103%;">
+            <div class="col-6">
+              <label for="state">State*</label>
+              <input type="text" id="state" name="state" value="{{ g.billing.state }}" required>
+            </div>
+            <div class="col-6">
+              <label for="zip">Billing ZIP Code*</label>
+              <input type="text" id="zip" name="zip" value="{{ g.billing.zip }}" required>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <h3>Payment</h3>
+        <label for="fname">Accepted Cards</label>
+        <div class="icon-container">
+          <i class="fab fa-cc-visa" style="color:navy;"></i>
+          <i class="fab fa-cc-amex" style="color:blue;"></i>
+          <i class="fab fa-cc-mastercard" style="color:red;"></i>
+          <i class="fab fa-cc-discover" style="color:orange;"></i>
+        </div>
+        <label for="cname">Name on Card*</label>
+        <input class="mb-2" type="text" id="cname" name="cardname" value="{{ g.billing.name_on_card }}" required>
+        <label for="ccnum">Credit card number*</label>
+        <input class="mb-2" type="text" id="ccnum" name="cardnumber" required>
+        <div class="row" style="width: 102%;">
+          <div class="col-4">
+            <label for="expmonth">Exp. Month*</label>
+            <!-- <input class="mb-2" type="text" id="expmonth" name="expmonth" value="{{ g.billing.card_exp_month }}" required> -->
+            <select class="mb-2" name="expmonth" id="expmonth" value="{{ g.billing.card_exp_month }}" required>
+              <option class="mb-2" disabled selected value>Select</option>
+              <option class="mb-2" value="JAN">JAN</option>
+              <option class="mb-2" value="FEB">FEB</option>
+              <option class="mb-2" value="MAR">MAR</option>
+              <option class="mb-2" value="APR">APR</option>
+              <option class="mb-2" value="MAY">MAY</option>
+              <option class="mb-2" value="JUN">JUN</option>
+              <option class="mb-2" value="JUL">JUL</option>
+              <option class="mb-2" value="AUG">AUG</option>
+              <option class="mb-2" value="SEP">SEP</option>
+              <option class="mb-2" value="OCT">OCT</option>
+              <option class="mb-2" value="NOV">NOV</option>
+              <option class="mb-2" value="DEC">DEC</option>
+            </select>
+          </div>
+          <div class="col-4">
+            <label for="expyear">Exp. Year*</label>
+            <input class="mb-2" type="text" id="expyear" name="expyear" value="{{ g.billing.card_exp_year }}" required>
+          </div>
+          <div class="col-4">
+            <label for="cvv">CVV*</label>
+            <input class="mb-2" type="text" id="cvv" name="cvv" placeholder="CVV" required>
+          </div>
+        </div>
+      </div>
+      <div class="col-4"></div>
+      <div class="buttons">
+        <input class="submitButton col-5 ml-3 mr-2" type="submit" value="Save Changes" class="btn">
+      </div>
+
+    </form>
+  </div>
+
+
+</body>
+
+</html>

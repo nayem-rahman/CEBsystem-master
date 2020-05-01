@@ -1,0 +1,224 @@
+body{
+  background: #8d99ae !important;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  width: 100%;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  overflow: hidden;
+  border-bottom: 1px solid #edf2f4;
+}
+
+li {
+  float: right;
+}
+
+#logo {
+  float: left;
+  color: #edf2f4;
+  font-size: 40px;
+}
+
+li a {
+  display: block;
+  color: #edf2f4;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  color: #2b2d42;
+  transition: .2s;
+}
+
+#topNav {
+  margin-bottom: 0;
+}
+
+.main {
+  width: 100%;
+  margin-bottom: 50px !important;
+}
+
+.loginForm {
+  color: #edf2f4;
+  font-size: 20px;
+  width: 90%;
+  margin: auto !important;
+}
+
+#loginDiv a {
+  text-decoration: none;
+  color: #edf2f4;
+  margin-left: 23%;
+  margin-right: auto;
+  width: 70%;
+}
+
+.submitButton {
+  font-size: 22px;
+  padding: 4px;
+  border-radius: 5px;
+  background-color: #ef233c;
+  border: none;
+  width: 99%;
+  color: #edf2f4;
+  margin-top: 10px;
+
+}
+
+.submitButton:hover {
+  box-shadow: 3px 3px 10px #191a21;
+
+}
+
+input {
+  font-size: 16px;
+  padding: 6px;
+  border: 2px solid #8d99ae;
+  border-radius: 5px;
+  width: 95%;
+  margin-top: 10px;
+}
+
+input:focus {
+  border: 2px solid #d90429;
+  transition: .3s;
+}
+
+.cancelButton {
+  font-size: 22px;
+  padding: 4px;
+  border-radius: 5px;
+  background-color: #2b2d42;
+  border: none;
+  width: 99%;
+  color: #edf2f4;
+  margin-top: 10px;
+
+}
+
+.cancelButton:hover {
+  box-shadow: 3px 3px 10px #191a21;
+
+}
+
+.buttons {
+  width: 500px;
+  margin-top: 20px;
+}
+
+* {
+  box-sizing: border-box;
+}
+h1{
+  color: #edf2f4;
+}
+.row {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  -ms-flex-wrap: wrap; /* IE10 */
+  flex-wrap: wrap;
+  margin: 0 -16px;
+  color: white;
+}
+
+.col-25 {
+  -ms-flex: 25%; /* IE10 */
+  flex: 25%;
+}
+
+.col-50 {
+  -ms-flex: 50%; /* IE10 */
+  flex: 50%;
+}
+
+.col-75 {
+  -ms-flex: 75%; /* IE10 */
+  flex: 75%;
+}
+
+.col-25,
+.col-50,
+.col-75 {
+  padding: 0 16px;
+}
+
+.container {
+  background-color: #8d99ae;
+  padding: 5px 20px 15px 20px;
+}
+
+
+.icon-container {
+  padding: 7px 0;
+  font-size: 26px;
+}
+
+.btn {
+  background-color: #ef233c;
+  color: white;
+  padding: 12px;
+  margin: 10px 0;
+  border: none;
+  width: 100%;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 17px;
+}
+
+.btn:hover {
+  background-color: #8d99ae;
+}
+
+a {
+  color: #ef233c;
+}
+
+hr {
+  border: 1px solid #8d99ae;
+}
+
+span.price {
+  float: right;
+  color: #8d99ae;
+}
+
+/* Responsive layout - when the screen is less than 800px wide, make the two columns stack on top of each other instead of next to each other (also change the direction - make the "cart" column go on top) */
+@media (max-width: 800px) {
+  .row {
+    flex-direction: column-reverse;
+  }
+  .col-25 {
+    margin-bottom: 20px;
+  }
+}
+
+.alert {
+  padding: 20px;
+  background-color: #ef233c;
+  color: white;
+  margin-bottom: 15px;
+  }
+  
+  .closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  }
+  
+  .closebtn:hover {
+  color: black;
+  }

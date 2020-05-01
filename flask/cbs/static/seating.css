@@ -1,0 +1,303 @@
+body{
+  background: #8d99ae !important;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  overflow: hidden;
+  border-bottom: 1px solid #edf2f4;
+}
+
+li {
+  float: right;
+}
+
+#LogInfo {
+  color: #edf2f4;
+  font-size: 18px;
+  float: left;
+  text-align: left;
+  margin-left: 38%;
+  margin-top: 20px;
+}
+
+li a {
+  display: block;
+  color: #edf2f4;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+li a:hover {
+  color: #2b2d42;
+  transition: .2s;
+  text-decoration: none;
+}
+
+#logo {
+  float: left;
+  color: #edf2f4;
+  font-size: 40px;
+  text-decoration: none;
+  padding: 0px !important;
+  margin-top: 0px;
+}
+
+#logo:hover {
+  float: left;
+  color: #edf2f4;
+  font-size: 40px;
+  text-decoration: none;
+  padding: 0px !important;
+  margin-top: 0px;
+}
+
+#topNav {
+  margin-bottom: 0;
+}
+
+.movieInfo {
+  width: 100.8% !important;
+  color: #edf2f4;
+  border-bottom: 1px solid #edf2f4;
+  padding: 20px;
+}
+
+.movieDetails {
+  text-align: center;
+}
+
+.main {
+  color: #edf2f4;
+  width: 100%;
+  margin: 0 !important;
+}
+
+.ticketView {
+  text-align: center;
+  border-left: 1px solid #edf2f4;
+  padding-bottom: 30px;
+}
+
+.tickets {
+  min-height: 60vh;
+}
+
+.checkButton {
+  width: 100%;
+  font-size: 20px;
+  cursor: pointer;
+  border: 0;
+  background: #2b2d42;
+  box-shadow: 2px 2px 5px #191a21;
+  border-radius: 5px;
+  color: #edf2f4;
+  text-align: center;
+  padding: 5px;;
+}
+
+.cartButton {
+  width: 100%;
+  font-size: 20px;
+  cursor: pointer;
+  border: 0;
+  background: #d90429;
+  box-shadow: 2px 2px 5px #191a21;
+  border-radius: 5px;
+  color: #edf2f4;
+  text-align: center;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
+.removeButton {
+  cursor: pointer;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0px;
+  color: #ef233c;
+  text-align: center;
+  padding: 4px 0px 0px 0px !important;
+}
+
+.removeButton:hover {
+  cursor: pointer;
+  border: 0;
+  background: none;
+  box-shadow: none;
+  border-radius: 0px;
+  color: #d90429;
+  text-align: center;
+  padding: 4px 0px 0px 0px !important;
+}
+
+.ticketType {
+  cursor: pointer;
+  border: 0;
+  background-color: #ef233c;
+  box-shadow: none;
+  border-radius: 0px;
+  color: #edf2f4;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #2b2d42;
+  opacity: .5;
+  padding: 0px !important;
+}
+
+.ticketType:hover {
+  cursor: pointer;
+  border: 0;
+  background-color: #d90429;
+  box-shadow: none;
+  color: #edf2f4;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #2b2d42;
+  opacity: 1;
+  padding: 0px !important;
+}
+
+.activePrice {
+  cursor: pointer;
+  border: 0;
+  background-color: #d90429;
+  box-shadow: none;
+  color: #edf2f4;
+  text-align: center;
+  text-decoration: none;
+  margin: 2px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 5px #2b2d42;
+  opacity: 1;
+  padding: 0px !important;
+}
+
+.seatingChart {
+  margin-bottom: 50px;
+}
+
+.seat {
+  cursor: pointer;
+  border: 2px solid #edf2f4;
+  background-color: #8d99ae;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #edf2f4;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  opacity: .6;
+}
+
+.seat:hover {
+  cursor: pointer;
+  border: 2px solid #edf2f4;
+  background-color: #8d99ae;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #edf2f4;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  opacity: 1;
+}
+
+.seat:focus {
+  outline: none;
+}
+.activeSeat {
+  cursor: pointer;
+  border: 2px solid #d90429;
+  background-color: #8d99ae;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #2b2d42;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  opacity: 1;
+}
+
+.activeSeat:hover {
+  cursor: pointer;
+  border: 2px solid #d90429;
+  background-color: #8d99ae;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #2b2d42;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  opacity: .7;
+}
+
+.takenSeat {
+  cursor: pointer;
+  border: 2px solid #2b2d42;
+  background-color: #8d99ae;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #2b2d42;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  opacity: 1;
+  cursor: default;
+}
+
+.takenSeat:hover {
+  cursor: pointer;
+  border: 2px solid #2b2d42;
+  background-color: #8d99ae;
+  box-shadow: none;
+  border-radius: 5px;
+  color: #2b2d42;
+  text-align: center;
+  text-decoration: none;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  opacity: 1;
+  cursor: default !important;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #ef233c;
+  color: white;
+  margin-bottom: 15px;
+  }
+  
+  .closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  }
+  
+  .closebtn:hover {
+  color: black;
+  }
+  

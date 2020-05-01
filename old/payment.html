@@ -1,0 +1,97 @@
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="payment.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <title>Checkout - CBS</title>
+</head>
+<body>
+
+<h1>Checkout Payment</h1>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action="/checkout.html">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name*</label>
+            <input type="text" id="fname" name="firstname" required>
+            <label for="email"><i class="fa fa-envelope"></i> Email*</label>
+            <input type="text" id="email" name="email" required>
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address*</label>
+            <input type="text" id="adr" name="address" required>
+            <label for="city"><i class="fa fa-institution"></i> City*</label>
+            <input type="text" id="city" name="city" placeholder="Atlanta" required>
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State*</label>
+                <input type="text" id="state" name="state" placeholder="GA" required>
+              </div>
+              <div class="col-50">
+                <label for="zip">Billing ZIP Code*</label>
+                <input type="text" id="zip" name="zip" placeholder="30301" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card*</label>
+            <input type="text" id="cname" name="cardname" required>
+            <label for="ccnum">Credit card number*</label>
+            <input type="text" id="ccnum" name="cardnumber" required>
+            <label for="expmonth">Expiration Month*</label>
+            <input type="text" id="expmonth" name="expmonth" placeholder="June" required>
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Expiration Year*</label>
+                <input type="text" id="expyear" name="expyear" placeholder="2020" required>
+              </div>
+              <div class="col-50">
+                <label for="cvv">Security Code*</label>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV" required>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <label>
+          <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
+        </label>
+        <input type="submit" value="Cancel checkout" class="btn">
+        <input type="submit" value="Continue to checkout" class="btn">
+      </form>
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:white"><i class="fa fa-shopping-cart"></i> <b>3</b></span></h4>
+      <p><button class="removeButton pt-1" type="button" name="remove"><i class="fa fa-minus"></i></button><a class="col-4"href="#">Adult Ticket</a><span class="price">$12</span></p>
+      <p><button class="removeButton pt-1" type="button" name="remove"><i class="fa fa-minus"></i></button><a href="#">Child Ticket</a> <span class="price">$8</span></p>
+      <p><button class="removeButton pt-1" type="button" name="remove"><i class="fa fa-minus"></i></button><a href="#">Senior Ticket</a> <span class="price">$8</span></p>
+      <div class="col-50">
+        <label for="cvv">Promo Code</label>
+        <input type="text" id="promo" name="promo" placeholder="" required>
+      </div>
+      <hr>
+      <p>Total <span class="price" style="color:white"><b>$28</b></span></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

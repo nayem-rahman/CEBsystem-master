@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel= "stylesheet" type= "text/css" href= "index.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+  <title>Home - CBS</title>
+</head>
+<body>
+  <ul id="topNav">
+
+  <div id="topnavStart">
+    <li><a href="register.html" title="Register">Register <i class="fas fa-user-plus"></i></a><li>
+  <li><a href="login.html" title="Login">Login <i class="fas fa-sign-in-alt"></i></a></li>
+  </div>
+  <div id="introHeader">
+    CBS
+  </div>
+  <div id="introP">
+    <p>
+      Book tickets for the hottest nearby movies
+    </p>
+  </div>
+</ul>
+<div class="searchDiv">
+  <form class="row searchForm" autocomplete="off" method="post">
+    <div class="searchBubble col-7">
+      <input id="searchInput" type="text" name="searchValue" placeholder="Search for title or keyword" size="50"></input>
+      <button type="submit" id="searchButton"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="col-1">
+
+    </div>
+    <div class="form-group col-3 pt-2"> <!-- Date input -->
+      <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+    </div>
+  </form>
+</div>
+  <div id="central">
+    <div id="introPlaying">
+      <p>
+        Now Playing
+      </p>
+    </div>
+    <div class="card-deck">
+  <div class="card" style="max-width: 18rem;max-height: 40rem;">
+    <img class="card-img-top" style="max-height: 22.5rem;"src="https://pbs.twimg.com/media/EDEsh0gU4AUTO3P?format=jpg&name=900x900" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Joker</h5>
+      <p class="card-text">2h 2m | R</p>
+      <p class="card-text">Action/Thriller</p>
+      <a href="seating.html" class="btn btn-primary">Book Now</a>
+      <p class="card-text"><small class="text-muted">Now Showing</small></p>
+    </div>
+  </div>
+  <div class="card" style="max-width: 18rem; max-height: 40rem;">
+    <img class="card-img-top" style="max-height: 22.5rem;"src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/216994/itchapter2%20-%20Final%20Art.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">IT: Chapter 2 (2019)</h5>
+      <p class="card-text">2h 2m | R</p>
+      <p>Horror, Suspense/Thriller</p>
+      <a href="seating.html" class="btn btn-primary">Book Now</a>
+      <p class="card-text"><small class="text-muted">Now Showing</small></p>
+    </div>
+  </div>
+  <div class="card" style="max-width: 18rem; max-height: 40rem;">
+    <img class="card-img-top" style="max-height: 22.5rem;"src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/215915/TheLionKing5c736ad86cb97.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">The Lion King</h5>
+      <p class="card-text">2h 49m | PG</p>
+      <p>Action/Adventure Drama</p>
+      <a href="seating.html" class="btn btn-primary">Book Now</a>
+      <p class="card-text"><small class="text-muted">Now Showing</small></p>
+    </div>
+  </div>
+  <div class="card" style="max-width: 18rem; max-height: 40rem;">
+    <img class="card-img-top" style="max-height: 22.5rem;"src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/216033/spider-man-far-from-home-SFFH_OnLine_1SHT_6072x9000_TSR_04_rgb.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Spiderman: Far From Home</h5>
+      <p class="card-text">2h 9m | PG-13</p>
+      <p>Action/Adventure, Sci-Fi/Fantasy</p>
+      <a href="seating.html" class="btn btn-primary">Book Now</a>
+      <p class="card-text"><small class="text-muted">Now Showing</small></p>
+    </div>
+  </div>
+</div>
+  </div>
+
+  <div id="introPlaying">
+    <p>
+      Comming Soon
+    </p>
+  </div>
+
+  <div id="central">
+
+    <div class="card-deck">
+  <div class="card" style="max-width: 18rem;max-height: 40rem;">
+    <img class="card-img-top" style="max-height: 22.5rem;"src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/218973/TerminatorDarkFate2019.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Terminator: Dark Fate</h5>
+      <p class="card-text">2h 8m | R</p>
+      <p class="card-text">Action/Adventure Sci-Fi/Fantasy</p>
+      <a href="https://www.youtube.com/watch?v=oxy8udgWRmo" class="btn btn-primary">Watch Trailer</a>
+      <p class="card-text"><small class="text-muted">Comming Soon</small></p>
+    </div>
+  </div>
+  <div class="card" style="max-width: 18rem; max-height: 40rem;">
+    <img class="card-img-top" style="max-height: 22.5rem;"src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/masterrepository/Fandango/219795/LastChristmas2019.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Last Christmas (2019)</h5>
+      <p class="card-text">1h 42m | PG-13</p>
+      <p>Comedy</p>
+      <a href="https://www.youtube.com/watch?v=z9CEIcmWmtA" class="btn btn-primary">Watch Trailer</a>
+      <p class="card-text"><small class="text-muted">Comming Soon</small></p>
+    </div>
+  </div>
+  <div class="card" style="max-width: 18rem; max-height: 40rem;">
+    <img class="card-img-top" style="max-height: 22.5rem;"src="https://regalcdn.azureedge.net/DoctorSleep/HO00009866/TV_SmallPosterImage/20191009-124901292.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Doctor Sleep</h5>
+      <p class="card-text">2h 31m | R</p>
+      <p>Horror</p>
+      <a href="https://www.youtube.com/watch?v=eFkmiAw5Av8" class="btn btn-primary">Watch Trailer</a>
+      <p class="card-text"><small class="text-muted">Comming Soon</small></p>
+    </div>
+  </div>
+  <div class="card" style="max-width: 18rem; max-height: 40rem;">
+    <img class="card-img-top" style="max-height: 22.5rem;"src="https://regalcdn.azureedge.net/Midway/HO00009733/TV_SmallPosterImage/20191030-125407466.jpg" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">Midway</h5>
+      <p class="card-text">2h 18m | PG-13</p>
+      <p>Action/Adventure, Drama</p>
+      <a href="https://www.youtube.com/watch?v=l9laReRAYFk" class="btn btn-primary">Watch Trailer</a>
+      <p class="card-text"><small class="text-muted">Comming Soon</small></p>
+    </div>
+  </div>
+  </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+
+<script>
+  $(document).ready(function(){
+    var date_input=$('input[name="date"]'); //our date input has the name "date"
+    var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+    var options={
+      format: 'mm/dd/yyyy',
+      container: container,
+      todayHighlight: true,
+      autoclose: true,
+    };
+    date_input.datepicker(options);
+  })
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='login.css') }}">
+  <title>Login - CBS</title>
+</head>
+<body>
+    <ul id="topNav">
+        <li style="float: left"><a id="logo" href="http://localhost:5000/" title="Home">CBS</a></li>
+        <li><a href="http://localhost:5000/register" title="Register">Register <i class="fas fa-user-plus"></i></a></li>
+        <li><a href="http://localhost:5000/" title="Home">Home <i class="fas fa-home"></i></a></li>
+      </ul>
+  {% for message in get_flashed_messages() %}
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  
+    <strong> {{message}} </strong>
+  </div>
+  {% endfor %}
+  <div id="loginDiv">
+    <div id="loginHeader">
+      Login
+    </div>
+    <form id="loginForm" action="http://localhost:5000/loggedin" method="post">
+      Email<br>
+      <input class="loginField" type="text" name="email" value="{{ g.email_input }}" required>
+      <br><br>
+      Password<br>
+      <input class="loginField" type="password" name="password" required>
+      <br><br>
+      <input class="submitButton" type="submit" value="Login">
+    </form>
+    <br>
+    <a href="http://localhost:5000/register">Don't have an account? Register here!</a>
+    <br><br>
+    <a style="margin-left: 240px;" href="http://localhost:5000/forgot">Forgot My Password</a>
+  </div>
+</body>
+</html>
+
+
+

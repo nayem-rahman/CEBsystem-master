@@ -1,0 +1,109 @@
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='payment.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <title>Checkout - CBS</title>
+</head>
+<body>
+  {% for message in get_flashed_messages() %}
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  
+    <strong> {{message}} </strong>
+  </div>
+  {% endfor %}
+
+<h1>Checkout Payment</h1>
+<div class="row">
+  <div class="col-75">
+    <div class="container">
+      <form action={{"http://localhost:5000/checkout?seats="~g.seat_url~"&show_id="~g.show_id~"&date="~g.date}} method="post">
+
+        <div class="row">
+          <div class="col-50">
+            <h3>Billing Address</h3>
+            <label for="fname"><i class="fa fa-user"></i> Full Name*</label>
+            <input type="text" id="fname" name="fullname" value="{{g.billing.full_name}}" required>
+            <label for="email"><i class="fa fa-envelope"></i> Email*</label>
+            <input type="text" id="email" name="email" value={{g.user.email}} required>
+            <label for="adr"><i class="fa fa-address-card-o"></i> Address*</label>
+            <input type="text" id="adr" name="address" value="{{g.billing.address}}" required>
+            <label for="city"><i class="fa fa-institution"></i> City*</label>
+            <input type="text" id="city" name="city" placeholder="Atlanta" value="{{g.billing.city}}" required>
+
+            <div class="row">
+              <div class="col-50">
+                <label for="state">State*</label>
+                <input type="text" id="state" name="state" placeholder="GA" value="{{g.billing.state}}" required>
+              </div>
+              <div class="col-50">
+                <label for="zip">Billing ZIP Code*</label>
+                <input type="text" id="zip" name="zip" placeholder="30301" value="{{g.billing.zip}}" required>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-50">
+            <h3>Payment</h3>
+            <label for="fname">Accepted Cards</label>
+            <div class="icon-container">
+              <i class="fa fa-cc-visa" style="color:navy;"></i>
+              <i class="fa fa-cc-amex" style="color:blue;"></i>
+              <i class="fa fa-cc-mastercard" style="color:red;"></i>
+              <i class="fa fa-cc-discover" style="color:orange;"></i>
+            </div>
+            <label for="cname">Name on Card*</label>
+            <input type="text" id="cname" name="cardname" value="{{g.billing.name_on_card}}" required>
+            <label for="ccnum">Credit card number*</label>
+            <input type="text" id="ccnum" name="cardnumber" value="{{g.billing.card_num}}" required>
+            <label for="expmonth">Expiration Month*</label>
+            <input type="text" id="expmonth" name="expmonth" value="{{g.billing.card_exp_month}}" placeholder="June" required>
+            <div class="row">
+              <div class="col-50">
+                <label for="expyear">Expiration Year*</label>
+                <input type="text" id="expyear" name="expyear" value="{{g.billing.card_exp_year}}" placeholder="2020" required>
+              </div>
+              <div class="col-50">
+                <label for="cvv">Security Code*</label>
+                <input type="text" id="cvv" name="cvv" placeholder="CVV" value="{{g.billing.card_cvv}}" required>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <a href="http://localhost:5000/"><input type="button" value="Cancel checkout" class="btn"></a>
+        <input type="submit" value="Continue to checkout" class="btn">
+      </form>
+    </div>
+  </div>
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:white"><i class="fa fa-shopping-cart"></i> <b>{{g.num_seats}}</b></span></h4>
+      {% for x in range(0,g.num_seats)  %}
+      {% if g.seat_type[x] == 0 %}
+      <p>Adult Ticket - {{g.seats[x]}}<span class="price">${{g.adult_price}}</span></p>
+      {% elif g.seat_type[x] == 1 %}
+      <p>Child Ticket - {{g.seats[x]}}<span class="price">${{g.child_price}}</span></p>
+      {% else %}
+      <p>Senior Ticket - {{g.seats[x]}}<span class="price">${{g.senior_price}}</span></p>
+      {% endif %}
+      {% endfor %}
+      <!-- <p><button class="removeButton pt-1" type="button" name="remove"><i class="fa fa-minus"></i></button><a class="col-4"href="#">Adult Ticket</a><span class="price">$12</span></p>
+      <p><button class="removeButton pt-1" type="button" name="remove"><i class="fa fa-minus"></i></button><a href="#">Child Ticket</a> <span class="price">$8</span></p>
+      <p><button class="removeButton pt-1" type="button" name="remove"><i class="fa fa-minus"></i></button><a href="#">Senior Ticket</a> <span class="price">$8</span></p>
+      <div class="col-50">
+        <label for="cvv">Promo Code</label>
+        <input type="text" id="promo" name="promo" placeholder="" required>
+      </div> -->
+      <hr>
+      <p>Total <span class="price" style="color:white"><b>${{g.total}}</b></span></p>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

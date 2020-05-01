@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='orderConfirm.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+
+  <title>Order Confirmation - CBS</title>
+</head>
+<body>
+<ul id="topNav">
+  {% if g.user %}
+  <li style="float: left"><a id="logo" href="http://localhost:5000/" title="Home">CBS</a></li>
+  <li><a href="http://localhost:5000/logout" title="Logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+  <li><a href="http://localhost:5000/profile" title="Profile">{{ g.user.email }} <i class="fas fa-user"></i></a></li>
+  <li><a href="http://localhost:5000/" title="Home">Home <i class="fas fa-home"></i></a></li>
+  {% else %}
+  <li><a href="http://localhost:5000/register" title="Register">Register <i class="fas fa-user-plus"></i></a></li>
+  <li><a href="http://localhost:5000/login" title="Login">Login <i class="fas fa-sign-in-alt"></i></a></li>
+  <li><a href="http://localhost:5000/" title="Home">Home <i class="fas fa-home"></i></a></li>
+  {% endif %}
+      </ul>
+ 
+  <div id="loginDiv">
+    <div id="loginHeader">
+      Order Confirmation
+    </div>
+    <p>Thank you for Booking with CBS! You will recieve a confirmation email shortly with your order summary.</p>
+    <br><br>
+  </div>
+</body>
+</html>

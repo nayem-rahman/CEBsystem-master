@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='userHistory.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>User History - CBS</title>
+
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+  {% for message in get_flashed_messages() %}
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong> {{message}} </strong>
+    </div>
+  {% endfor %}
+
+  <ul id="topNav">
+    <li style="float: left"><a id="logo" href="http://localhost:5000/" title="Home">CBS</a></li>
+    <li><a href="http://localhost:5000/logout" title="Logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+    <li><a href="http://localhost:5000/profile" title="Profile">{{ g.user.email }} <i class="fas fa-user"></i></a><li>
+    <li><a href="http://localhost:5000/" title="Home">Home <i class="fas fa-home"></i></a></li>
+  </ul>
+
+  <div class="main">
+    <ul id="profileNav">
+      <li><a href="http://localhost:5000/profile">Profile</a></li>
+      <li><a href="http://localhost:5000/profileBilling">Billing</a></li>
+      <li class="active"><a href="http://localhost:5000/userHistory">History</a></li>
+    </ul>
+
+    <div class="resultContainer">
+      <table>
+        <tr class="">
+          <th class="date">
+            <div class="row">
+              <span class="col-1">DATE</span>
+            </div>
+          </th>
+          <th class="movie">
+            <div class="row">
+              <span class="col-3">MOVIE</span>
+            </div>
+          </th>
+          <th class="showtime">
+            <div class="row">
+              <span class="col-1">SHOWTIME</span>
+            </div>
+          </th>
+          <th class="seats">
+            <div class="row">
+              <span class="col-3">SEATS</span>
+            </div>
+          </th>
+          <th class="cost">
+            <div class="row">
+              <span class="col-3">COST</span>
+            </div>
+          </th>
+        </tr>
+        {% for i in range(0,g.len_bookings,2) %}
+        <tr class="rowOdd">
+          <td class="date">{{g.bookings[i].date}}</td>
+          <td class="movie">{{g.movies[i]}}</td>
+          <td class="showtime">{{g.showings[i].show_time}}</td>
+          <td class="seats">{{g.seats[i]}}</td>
+          <td class="cost">${{g.bookings[i].total}}</td>
+        </tr>
+        {% if i+1 < g.len_bookings %}
+        <tr class="rowEven">
+          <td class="date">{{g.bookings[i+1].date}}</td>
+          <td class="movie">{{g.movies[i+1]}}</td>
+          <td class="showtime">{{g.showings[i+1].show_time}}</td>
+          <td class="seats">{{g.seats[i+1]}}</td>
+          <td class="cost">${{g.bookings[i+1].total}}</td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </table>
+    </div>
+
+  </div>
+</body>
+
+</html>

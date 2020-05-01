@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang=en>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='manageShowtimes.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css" />
+
+  <title>Admin - CBS</title>
+</head>
+
+<body>
+  <!-- LOGGED IN NAV -->
+  <ul id="topNav">
+    <li style="float: left"><a id="logo" href="http://localhost:5000/admin" title="Home">CBS</a></li>
+    <li><a href="http://localhost:5000/logout" title="Logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+    <li><a href="http://localhost:5000/profile" title="Profile">{{ g.user.email }} <i class="fas fa-user"></i></a>
+    <li>
+    <li><a href="http://localhost:5000/admin" title="Home">Home <i class="fas fa-home"></i></a></li>
+  </ul>
+  {% for message in get_flashed_messages() %}
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+    <strong> {{message}} </strong>
+  </div>
+  {% endfor %}
+  <div class="main">
+    <ul id="manageNav">
+      <li class=""><a href="http://localhost:5000/addMovie">Add Movie</a></li>
+      <!-- <li><a href="http://localhost:5000/showtime">Manage Showtimes</a></li> -->
+      <li><a href="http://localhost:5000/halls">Manage Halls</a></li>
+      <li><a href="http://localhost:5000/manageUsers">Manage Users</a></li>
+      <li><a href="http://localhost:5000/report">View Report</a></li>
+      <li><a href="http://localhost:5000/addPromo">Add Promotions</a></li>
+    </ul>
+
+    <div class="resultContainer">
+      <h1>Showtimes for <span>{{g.movie.name}}</span></h1>
+      <button class="add" type="button" name="add"><a href={{"http://localhost:5000/addShowtime?id="~g.movie.id}}>Add Showtime</a></button>
+      <table>
+        <tr class="">
+          <th class="showtime">
+            <div class="row">
+              <span class="col-3">SHOWTIME</span>
+              <div class="arrows col-1 ml-2">
+                <button class="up-arrow row"><i class="fas fa-sort-up"></i></button>
+                <button class="down-arrow row"><i class="fas fa-sort-down"></i></button>
+              </div>
+            </div>
+          </th>
+          <th class="start">
+            <div class="row">
+              <span class="col-5">START DATE</span>
+              <div class="arrows col-1 ml-1">
+                <button class="up-arrow row"><i class="fas fa-sort-up"></i></button>
+                <button class="down-arrow row"><i class="fas fa-sort-down"></i></button>
+              </div>
+            </div>
+          </th>
+          <th class="end">
+            <div class="row">
+              <span class="col-4">END DATE</span>
+              <div class="arrows col-1 ml-3">
+                <button class="up-arrow row"><i class="fas fa-sort-up"></i></button>
+                <button class="down-arrow row"><i class="fas fa-sort-down"></i></button>
+              </div>
+            </div>
+          </th>
+          <th class="hall">
+            <div class="row">
+              <span class="col-3">HALL</span>
+              <div class="arrows col-1">
+                <button class="up-arrow row"><i class="fas fa-sort-up"></i></button>
+                <button class="down-arrow row"><i class="fas fa-sort-down"></i></button>
+              </div>
+            </div>
+          </th>
+          <th class="more">MORE</th>
+        </tr>
+        {% for i in range(0,g.len_showings,2) %}
+        <tr class="rowOdd">
+          <td class="showtime">{{g.showings[i].show_time}}</td>
+          <td class="start">{{g.showings[i].start_date}}</td>
+          <td class="end">{{g.showings[i].end_date}}</td>
+          <td class="hall">{{g.showings[i].showroom_id}}</td>
+          <td>
+            <div class="dropdown">
+              <div onclick="myFunction('{{g.showings[i].id}}')" class="dropbtn" type="button" name="remove">
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+              <div id="{{g.showings[i].id}}" class="dropdown-content">
+                <a href={{"http://localhost:5000/editShowtime?id="~g.showings[i].id}}>Edit Showtime</a>
+                <a href={{"http://localhost:5000/removeShowtime?id="~g.showings[i].id}}>Remove Showtime</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {% if i+1 < g.len_showings %}
+        <tr class="rowEven">
+          <td class="showtime">{{g.showings[i+1].show_time}}</td>
+          <td class="start">{{g.showings[i+1].start_date}}</td>
+          <td class="end">{{g.showings[i+1].end_date}}</td>
+          <td class="hall">{{g.showings[i+1].showroom_id}}</td>
+          <td class="">
+            <div class="dropdown">
+              <div onclick="myFunction('{{g.showings[i+1].id}}')" class="dropbtn" type="button" name="remove">
+                <i class="fas fa-ellipsis-v"></i>
+              </div>
+              <div id="{{g.showings[i+1].id}}" class="dropdown-content">
+                <a href={{"http://localhost:5000/editShowtime?id="~g.showings[i+1].id}}>Edit Showtime</a>
+                <a href={{"http://localhost:5000/removeShowtime?id="~g.showings[i+1].id}}>Remove Showtime</a>
+              </div>
+            </div>
+          </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+      </table>
+    </div>
+
+
+
+    <script>
+      /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+      function myFunction(x) {
+
+        var dropdowns = document.getElementsByClassName("dropdown-content");
+        var i;
+        for (i = 0; i < dropdowns.length; i++) {
+          var openDropdown = dropdowns[i];
+          if (openDropdown.classList.contains('show')) {
+            openDropdown.classList.remove('show');
+          }
+        }
+        document.getElementById(x).classList.toggle("show");
+
+      }
+
+      // Close the dropdown if the user clicks outside of it
+      window.onclick = function(event) {
+        if (!event.target.matches('.dropbtn') && !event.target.matches('.fas')) {
+          var dropdowns = document.getElementsByClassName("dropdown-content");
+          var i;
+          for (i = 0; i < dropdowns.length; i++) {
+            var openDropdown = dropdowns[i];
+            if (openDropdown.classList.contains('show')) {
+              openDropdown.classList.remove('show');
+            }
+          }
+        }
+      }
+    </script>
+
+</body>
+
+</html>

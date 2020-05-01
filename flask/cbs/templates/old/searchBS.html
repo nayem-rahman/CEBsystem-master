@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='searchBS.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <title>Search - CBS</title>
+
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+</head>
+<body>
+  {% for message in get_flashed_messages() %}
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  
+      <strong> {{message}} </strong>
+    </div>
+  {% endfor %}
+
+  <ul id="topNav">
+    <li id="logo">CBS</li>
+    <li><a href="contact.asp"><i class="fas fa-shopping-cart"></i></a></li>
+    <li><a href="http://localhost:5000/profile"><i class="fas fa-user"></i></a></li>
+  </ul>
+
+  <div class="searchDiv">
+    <form class="row searchForm" method="post">
+      <div class="searchBubble col-7">
+        <input id="searchInput" type="text" name="searchValue" placeholder="Search for title or keyword" size="53"></input>
+        <button id="searchButton"><i class="fas fa-search"></i></button>
+      </div>
+      <div class="col-1">
+
+      </div>
+      <div class="form-group col-3 pt-2"> <!-- Date input -->
+        <input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text"/>
+      </div>
+    </form>
+  </div>
+
+  <div class="resultContainer">
+    <div class="resultRow row">
+      <div class="movieDiv col-xl-5 col-lg-10 p-0 mb-lg-5 mb-xl-1">
+        <div class="container p-0 row ">
+          <a class="col-4 p-0"href="https://www.youtube.com/watch?v=zAGVQLHvwOY" target="_blank"><img class="movieImg" src="https://pbs.twimg.com/media/EDEsh0gU4AUTO3P?format=jpg&name=900x900"></a>
+          <div class="movieInfo col-4 p-0 pt-3">
+            <div class="movieTitle">
+              <span>Joker</span>
+            </div>
+            <div class="movieDetails">
+              <span>R</span>
+              <br>
+              <span>2h 2m</span>
+              <br>
+              <span>Action/Thriller</span>
+            </div>
+          </div>
+          <div class="showtimesList col-4 p-0 pt-1">
+            <span class="showtime-un">9:30a</span>
+            <span class="showtime">11:50a</span>
+            <span class="showtime">2:10p</span>
+            <span class="showtime-un">4:45p</span>
+            <span class="showtime">7:30p</span>
+            <a class="showtime" href="seating.html">10:00p</a>
+          </div>
+        </div>
+      </div>
+      <div class="movieDiv col-xl-5 col-lg-10 p-0 mb-lg-5 mb-xl-1">
+        <div class="container p-0 row">
+          <a class="col-4 p-0" href="https://www.youtube.com/watch?v=xhJ5P7Up3jA" target="_blank"><img class="movieImg" src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/216994/itchapter2%20-%20Final%20Art.jpg"></a>
+          <div class="movieInfo col-4 p-0 pt-3">
+            <div class="movieTitle">
+              <span>IT: Chapter 2 (2019)</span>
+            </div>
+            <div class="movieDetails">
+              <span>R</span>
+              <br>
+              <span>2h 49m</span>
+              <br>
+              <span>Horror, Suspense/Thriller</span>
+            </div>
+          </div>
+          <div class="showtimesList col-4 p-0 pt-1">
+            <span class="showtime">4:45p</span>
+            <span class="showtime">7:30p</span>
+            <span class="showtime-un">10:00p</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="resultRow row">
+      <div class="movieDiv col-xl-5 col-lg-10 p-0 mb-lg-5 mb-xl-1">
+        <div class="container p-0 row">
+          <a class="col-4 p-0" href="https://www.youtube.com/watch?v=7TavVZMewpY" target="_blank"><img class="movieImg" src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/215915/TheLionKing5c736ad86cb97.jpg"></a>
+          <div class="movieInfo col-4 p-0 pt-3">
+            <div class="movieTitle">
+              <span>The Lion King</span>
+            </div>
+            <div class="movieDetails">
+              <span>R</span>
+              <br>
+              <span>2h 49m</span>
+              <br>
+              <span>Horror, Suspense/Thriller</span>
+            </div>
+          </div>
+          <div class="showtimesList col-4 p-0 pt-1">
+            <span class="showtime">10:00a</span>
+            <span class="showtime">12:30p</span>
+            <span class="showtime-un">3:00p</span>
+            <span class="showtime">6:450p</span>
+            <span class="showtime-un">10:10p</span>
+          </div>
+        </div>
+      </div>
+      <div class="movieDiv col-xl-5 col-lg-10 p-0 mb-lg-5 mb-xl-1">
+        <div class="container p-0 row">
+          <a class="col-4 p-0" href="https://www.youtube.com/watch?v=BsCNKuB93BA" target="_blank"><img class="movieImg" src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/219166/AdAstra_VerC_Poster_R2_sRGB.JPG"></a>
+          <div class="movieInfo col-4 p-0 pt-3">
+            <div class="movieTitle">
+              <span>Ad Astra</span>
+            </div>
+            <div class="movieDetails">
+              <span>PG-13</span>
+              <br>
+              <span>2h 2m</span>
+              <br>
+              <span>Action/Adventure, Sci-Fi/Fantasy, Suspense/Thriller</span>
+            </div>
+          </div>
+          <div class="showtimesList col-4 p-0 pt-1">
+            <span class="showtime">1:45p</span>
+            <span class="showtime-un">3:15p</span>
+            <span class="showtime-un">5:55p</span>
+            <span class="showtime">8:20p</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="resultRow row">
+      <div class="movieDiv col-xl-5 col-lg-10 p-0 mb-lg-5 mb-xl-1">
+        <div class="container p-0 row">
+          <a  class="col-4 p-0" href="https://www.youtube.com/watch?v=zPXqwAGmX04" target="_blank"><img class="movieImg" src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/217779/GoodBoys2019.jpg"></a>
+          <div class="movieInfo col-4 p-0 pt-3">
+            <div class="movieTitle">
+              <span>Good Boys (2019)</span>
+            </div>
+            <div class="movieDetails">
+              <span>R</span>
+              <br>
+              <span>1h 35m</span>
+              <br>
+              <span>Comedy</span>
+            </div>
+          </div>
+          <div class="showtimesList col-4 p-0 pt-1">
+            <span class="showtime">10:45a</span>
+            <span class="showtime">12:10p</span>
+          </div>
+        </div>
+      </div>
+      <div class="movieDiv col-xl-5 col-lg-10 p-0 mb-lg-5 mb-xl-1">
+        <div class="container p-0 row">
+          <a class="col-4 p-0" href="https://www.youtube.com/watch?v=Nt9L1jCKGnE" target="_blank"><img class="movieImg" src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/216033/spider-man-far-from-home-SFFH_OnLine_1SHT_6072x9000_TSR_04_rgb.jpg"></a>
+          <div class="movieInfo col-4 p-0 pt-3">
+            <div class="movieTitle">
+              <span>Spiderman: Far From Home</span>
+            </div>
+            <div class="movieDetails">
+              <span>PG-13</span>
+              <br>
+              <span>2h 9m</span>
+              <br>
+              <span>Action/Adventure, Comedy, Sci-Fi/Fantasy</span>
+            </div>
+          </div>
+          <div class="showtimesList col-4 p-0 pt-1">
+            <span class="showtime">9:45a</span>
+            <span class="showtime-un">11:20a</span>
+            <span class="showtime-un">12:50p</span>
+            <span class="showtime">2:25p</span>
+            <span class="showtime">5:00p</span>
+            <span class="showtime-un">7:15p</span>
+            <span class="showtime">10:35p</span>
+            <span class="showtime-un">:12:30p</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="resultRow row">
+      <div class="movieDiv col-xl-5 col-lg-10 p-0 mb-lg-5 mb-xl-1">
+        <div class="container p-0 row">
+          <a class="col-4 p-0" href="https://www.youtube.com/watch?v=lDv-TwjQ_o4" target="_blank"><img class="movieImg" src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/218764/HUSTLERS_27x40_sRGB.jpg"></a>
+          <div class="movieInfo col-4 p-0 pt-3">
+            <div class="movieTitle">
+              <span>Hustlers</span>
+            </div>
+            <div class="movieDetails">
+              <span>R</span>
+              <br>
+              <span>1h 50m</span>
+              <br>
+              <span>Comedy, Drama, Suspense/Thriller</span>
+            </div>
+          </div>
+          <div class="showtimesList col-4 p-0 pt-1">
+            <span class="showtime-un">10:15a</span>
+            <span class="showtime">11:50a</span>
+            <span class="showtime-un">1:40p</span>
+            <span class="showtime">4:20p</span>
+          </div>
+        </div>
+      </div>
+      <div class="movieDiv col-xl-5 col-lg-10 p-0 mb-lg-5 mb-xl-1">
+        <div class="container p-0 row">
+          <a class="col-4 p-0" href="https://www.youtube.com/watch?v=IcG06hZooHM" target="_blank"><img class="movieImg" src="https://images.fandango.com/ImageRenderer/200/0/redesign/static/img/default_poster.png/0/images/MasterRepository/fandango/219007/TheGoldfinch2019.jpg"></a>
+          <div class="movieInfo col-4 p-0 pt-3">
+            <div class="movieTitle">
+              <span>The Goldfinch</span>
+            </div>
+            <div class="movieDetails">
+              <span>R</span>
+              <br>
+              <span>2h 29m</span>
+              <br>
+              <span>Drama</span>
+            </div>
+          </div>
+          <div class="showtimesList col-4 p-0 pt-1">
+            <span class="showtime">8:45p</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <script>
+    $(document).ready(function(){
+      var date_input=$('input[name="date"]'); //our date input has the name "date"
+      var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
+      var options={
+        format: 'mm/dd/yyyy',
+        container: container,
+        todayHighlight: true,
+        autoclose: true,
+      };
+      date_input.datepicker(options);
+    })
+    
+</body>
+</html>

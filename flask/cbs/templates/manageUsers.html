@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='manageUsr.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/js/bootstrap-datepicker.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.4.1/css/bootstrap-datepicker3.css"/>
+
+  <title>Manage Users - CBS</title>
+</head>
+
+<body>
+  <!-- LOGGED IN NAV -->
+    <ul id="topNav">
+      <li style="float: left"><a id="logo" href="http://localhost:5000/admin" title="Home">CBS</a></li>
+      <li><a href="http://localhost:5000/logout" title="Logout">Logout <i class="fas fa-sign-in-alt"></i></a></li>
+      <li><a href="http://localhost:5000/profile" title="Profile">{{ g.user.email }} <i class="fas fa-user"></i></a><li>
+      <li><a href="http://localhost:5000/admin" title="Home">Home <i class="fas fa-home"></i></a></li>
+    </ul>
+
+    {% for message in get_flashed_messages() %}
+    <div class="alert">
+      <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+      <strong> {{message}} </strong>
+    </div>
+    {% endfor %}
+
+  <div class="main">
+    <ul id="manageNav">
+    <li class=""><a href="http://localhost:5000/addMovie">Add Movie</a></li>
+    <!-- <li><a href="http://localhost:5000/manageShowtimes">Manage Showtimes</a></li> -->
+    <li><a href="http://localhost:5000/halls">Manage Halls</a></li>
+    <li class="active"><a href="http://localhost:5000/manageUsers">Manage Users</a></li>
+    <li><a href="http://localhost:5000/report">View Report</a></li>
+    <li><a href="http://localhost:5000/addPromo">Add Promotions</a></li>
+  </ul>
+
+  <div class="resultContainer">
+    <table>
+      <tr class="">
+        <th class="email">
+          <div class="row">
+            <span class="col-1">EMAIL</span>
+            <div class="arrows col-1 ml-2">
+              <button class="up-arrow row"><i class="fas fa-sort-up"></i></button>
+              <button class="down-arrow row"><i class="fas fa-sort-down"></i></button>
+            </div>
+          </div>
+        </th>
+        <th class="status">
+          <div class="row">
+            <span class="col-3">STATUS</span>
+            <div class="arrows col-1 ml-1">
+              <button class="up-arrow row"><i class="fas fa-sort-up"></i></button>
+              <button class="down-arrow row"><i class="fas fa-sort-down"></i></button>
+            </div>
+          </div>
+        </th>
+        <th class="action">ACTION</th>
+      </tr>
+      {% for i in range(0,g.user_len,2) %}
+      <tr class="rowOdd">
+        <td class="email">{{g.all_users[i].email}}</td>
+        <td class="status">{{g.user_status[i]}}</td>
+        <td class="action">
+          {% if g.all_users[i].status < 3 %}
+          <a href={{"http://localhost:5000/suspendUser?id="~g.all_users[i].id}} class="sus-btn">
+            Suspend <i class="fas fa-user-slash"></i>
+          {% else %}
+          <a href={{"http://localhost:5000/unsuspendUser?id="~g.all_users[i].id}} class="sus-btn">
+            Unsuspend <i class="fas fa-user-check"></i>
+          {% endif %}
+          </a>
+        </td>
+      </tr>
+      {% if i+1 < g.user_len %}
+      <tr class="rowEven">
+        <td class="email">{{g.all_users[i+1].email}}</td>
+        <td class="status">{{g.user_status[i+1]}}</td>
+        <td class="action">
+          {% if g.all_users[i+1].status < 3 %}
+          <a href={{"http://localhost:5000/suspendUser?id="~g.all_users[i+1].id}} class="sus-btn">
+            Suspend <i class="fas fa-user-slash"></i>
+          {% else %}
+          <a href={{"http://localhost:5000/unsuspendUser?id="~g.all_users[i].id}} class="sus-btn">
+            Unsuspend <i class="fas fa-user-check"></i>
+          {% endif %}
+          </a>
+        </td>
+      </tr>
+      {% endif %}
+      {% endfor %}
+    </table>
+  </div>
+
+
+
+  <script>
+  /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+
+</script>
+
+</body>
+</html>

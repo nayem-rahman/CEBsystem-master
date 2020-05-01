@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link href="profile.css" type="text/css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <title>Profile - CBS</title>
+
+  <script src="https://kit.fontawesome.com/bf3303bc3f.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+
+  <ul id="topNav">
+    <li style="float: left"><a id="logo" href="searchBS.html" title="Home">CBS</a></li>
+    <li><a href="index.html" title="Logout"><i class="fas fa-sign-out-alt"></i></a></li>
+    <li><a href="cart.html" title="Cart"><i class="fas fa-shopping-cart"></i></a></li>
+    <li><a href="profile.html" title="Profile"><i class="fas fa-user"></i></a></li>
+    <li id="LogInfo">Logged in as <span class="userEmail">kljohnston2626@gmail.com</span></li>
+  </ul>
+
+  <div class="main">
+    <ul id="profileNav">
+      <li><a href="profile.html">Profile</a></li>
+      <li class="active"><a href="billing.html">Billing</a></li>
+      <li><a href="history.html">History</a></li>
+    </ul>
+    <form class="loginForm row" action="index.html" method="post">
+      <div class="col-4">
+        <div class="">
+          <h3>Billing Address</h3>
+          <label for="fname">Full Name*</label>
+          <input class="mb-2" type="text" id="fname" name="firstname" required>
+          <label for="adr">Address*</label>
+          <input class="mb-2" type="text" id="adr" name="address" required>
+          <label for="city">City*</label>
+          <input class="mb-2" type="text" id="city" name="city" placeholder="Atlanta" required>
+
+          <div class="row" style="width: 103%;">
+            <div class="col-6">
+              <label for="state">State*</label>
+              <input type="text" id="state" name="state" placeholder="GA" required>
+            </div>
+            <div class="col-6">
+              <label for="zip">Billing ZIP Code*</label>
+              <input type="text" id="zip" name="zip" placeholder="30301" required>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-4">
+        <h3>Payment</h3>
+        <label for="fname">Accepted Cards</label>
+        <div class="icon-container">
+          <i class="fab fa-cc-visa" style="color:navy;"></i>
+          <i class="fab fa-cc-amex" style="color:blue;"></i>
+          <i class="fab fa-cc-mastercard" style="color:red;"></i>
+          <i class="fab fa-cc-discover" style="color:orange;"></i>
+        </div>
+        <label for="cname">Name on Card*</label>
+        <input class="mb-2" type="text" id="cname" name="cardname" required>
+        <label for="ccnum">Credit card number*</label>
+        <input class="mb-2" type="text" id="ccnum" name="cardnumber" required>
+        <div class="row" style="width: 102%;">
+          <div class="col-4">
+            <label for="expmonth">Exp. Month*</label>
+            <input class="mb-2" type="text" id="expmonth" name="expmonth" placeholder="June" required>
+          </div>
+          <div class="col-4">
+            <label for="expyear">Exp. Year*</label>
+            <input class="mb-2" type="text" id="expyear" name="expyear" placeholder="2020" required>
+          </div>
+          <div class="col-4">
+            <label for="cvv">CVV*</label>
+            <input class="mb-2" type="text" id="cvv" name="cvv" placeholder="CVV" required>
+          </div>
+        </div>
+      </div>
+      <div class="col-4"></div>
+      <div class="buttons">
+        <input class="submitButton col-5 ml-3 mr-2" type="submit" value="Save Changes" class="btn">
+      </div>
+
+    </form>
+  </div>
+
+
+</body>
+
+</html>

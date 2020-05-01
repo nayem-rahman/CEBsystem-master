@@ -1,0 +1,175 @@
+body{
+  background: #8d99ae !important;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  width: 100%;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding-top: 15px;
+  padding-right: 30px;
+  padding-bottom: 15px;
+  overflow: hidden;
+  border-bottom: 1px solid #edf2f4;
+}
+
+li {
+  float: right;
+}
+#topNav {
+  margin-bottom: 0;
+}
+#logo {
+  float: left;
+  color: #edf2f4;
+  font-size: 40px;
+  text-decoration: none;
+  padding: 0px !important;
+  margin-top: 0px;
+}
+
+#logo:hover {
+  float: left;
+  color: #edf2f4;
+  font-size: 40px;
+  text-decoration: none;
+  padding: 0px !important;
+  margin-top: 0px;
+}
+
+#LogInfo {
+  color: #edf2f4;
+  font-size: 18px;
+  float: left;
+  text-align: left;
+  margin-left: 38%;
+  margin-top: 20px;
+}
+li a {
+  display: block;
+  color: #edf2f4;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  margin-top: 8px;
+}
+
+li a:hover {
+  color: #2b2d42;
+  transition: .2s;
+}
+
+.main {
+  width: 100%;
+  margin-bottom: 50px !important;
+}
+
+.resultContainer {
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+#manageNav {
+  padding: 0px;
+  border-bottom: solid 2px #edf2f4;
+  margin-bottom: 30px;
+}
+#manageNav li {
+  float: left;
+  border: solid 2px  #2b2d42;
+  margin-top: 30px;
+  border-radius: 10px 10px 0px 0px;
+  margin-left: 3px;
+}
+
+#manageNav a{
+  margin: 0px;
+  padding: 15px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+#manageNav a:hover {
+  text-decoration: none;
+}
+
+.active {
+  border: solid 2px  #edf2f4 !important;
+}
+
+h1, h5 {
+  color: #edf2f4;
+}
+
+h5 {
+  font-weight: bold !important;
+  padding-top: 30px;
+}
+
+input {
+  font-size: 28px;
+  padding: 4px;
+}
+
+.add {
+  color: #edf2f4;
+  background-color: #ef233c;
+  border: none;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 3px 3px 5px #2b2d42;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.add:hover {
+  color: #edf2f4;
+  background-color: #d90429;
+  border: none;
+  text-align: center;
+  padding: 10px;
+  box-shadow: 3px 3px 5px #2b2d42;
+  font-size: 18px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.add a {
+  color: #edf2f4;
+  text-decoration: none;
+}
+
+.add a:hover {
+  color: #edf2f4;
+  text-decoration: none;
+}
+
+.alert {
+  padding: 20px;
+  background-color: #ef233c;
+  color: white;
+  margin-bottom: 15px;
+  }
+  
+  .closebtn {
+  margin-left: 15px;
+  color: white;
+  font-weight: bold;
+  float: right;
+  font-size: 22px;
+  line-height: 20px;
+  cursor: pointer;
+  }
+  
+  .closebtn:hover {
+  color: black;
+  }
+  

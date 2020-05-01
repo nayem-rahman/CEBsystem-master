@@ -1,0 +1,56 @@
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='checkout.css') }}">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+  <title>Checkout - CBS</title>
+</head>
+<body>
+  {% for message in get_flashed_messages() %}
+  <div class="alert">
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>  
+    <strong> {{message}} </strong>
+  </div>
+  {% endfor %}
+
+<h1>Checkout</h1>
+<div class="row">
+  <div class="col-25">
+    <div class="container">
+      <h4>Cart <span class="price" style="color:white"><i class="fa fa-shopping-cart"></i> <b>{{g.num_seats}}</b></span></h4>
+      {% for x in range(0, g.num_seats) %}
+      {% if g.seat_types[x] == 0 %}
+      <p><a href="#">Adult Ticket - {{g.seats[x]}}</a> <span class="price">${{g.adult_price}}</span></p>
+      {% elif g.seat_types[x] == 1 %}
+      <p><a href="#">Child Ticket - {{g.seats[x]}}</a> <span class="price">${{g.child_price}}</span></p>
+      {% else %}
+      <p><a href="#">Senior Ticket - {{g.seats[x]}}</a> <span class="price">${{g.senior_price}}</span></p>
+      {% endif %}
+      {% endfor %}
+
+      {% if g.discount > 0 %}
+      <p><a href="#">Promo - {{g.promo_code}}</a> <span class="price">-{{g.discount}}%</span></p>
+      {% endif %}
+      <hr>
+
+      <form class="" action={{"http://localhost:5000/checkout?seats="~g.seat_url~"&show_id="~g.show_id~"&date="~g.date~"&bill_id="~g.billing.id}} method="post">
+        <div class="col-50">
+          <label for="cvv">Promo Code</label>
+          <input type="text" id="promo" name="promo" placeholder="SAVE5" value="{{g.promo_code}}" required>
+          <button class="applybtn" type="submit" value="Apply">Apply</button>
+        </div>
+      </form>
+      <p>Total <span class="price" style="color:white"><b>${{g.total}}</b></span></p>
+    </div>
+    <a href="http://localhost:5000/"><input type="button" value="Cancel checkout" class="btn"></a>
+    <a href={{"http://localhost:5000/orderConfirm?show_id="~g.show_id~"&date="~g.date~"&bill_id="~g.billing.id~"&seats="~g.seat_url~"&total="~g.total}}><input type="submit" value="Checkout" class="btn"></a>
+
+  </div>
+</div>
+
+</body>
+</html>
